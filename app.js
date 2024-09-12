@@ -7,7 +7,7 @@ require('dotenv').config();
 
 const app = express()
 
-let port = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000
 
 // const authMiddleware = require('./middleware/authMiddleware');
 //db connection
@@ -22,7 +22,7 @@ mongoose.set("runValidators", true)
 mongoose.connect(dbconnect)
 .then((result) => {
     console.log("dbConnected");
-    app.listen(port,()=>console.log("http://localhost:3000"))
+    app.listen(PORT,()=>console.log("http://localhost:3000"))
 })
 .catch((err) => {
     console.log(err);
