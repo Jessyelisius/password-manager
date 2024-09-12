@@ -16,7 +16,7 @@ const authMiddleware = require('./middleware/authMiddleware');
 const userPassword = require('./models/userPwd.model');
 const { decryptPassword } = require('./utils/cryptHash');
 
-const dbconnect = "mongodb://localhost:27017/pwdManager";
+const dbconnect = process.env.DB_CONNECTION_STRING; //fetch from enc file
 mongoose.set("strictQuery",true);
 mongoose.set("runValidators", true)
 mongoose.connect(dbconnect)
