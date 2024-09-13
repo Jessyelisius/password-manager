@@ -7,10 +7,16 @@ const bcrypt = require('bcryptjs')
 
 //node mailer for user validation of otp
 const transporter = nodemailer.createTransport({
-    service: 'Gmail', // You can use any email service,
+    service: process.env.service, // You can use any email service,
+
+    port: 465,
+
     auth: {
-        user: process.env.EMAIL_USER, //using the environment variable
-        pass: process.env.EMAIL_PASS
+        user: process.env.email, //using the environment variable
+        pass: process.env.pass
+    },
+    tls:{
+        rejectUnauthorized: false
     }
 });
 
